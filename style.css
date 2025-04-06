@@ -1,0 +1,487 @@
+@font-face {
+  font-family: "NetflixSans";
+  src: url(font/NetflixSans-Regular.woff2) format(woff2);
+  font-weight: normal;
+  font-style: normal;
+  font-family: "NetflixSans-Bold";
+  src: url(font/NetflixSans-Bold.woff2) format(woff2);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "NetflixSans";
+  box-sizing: border-box;
+}
+
+body {
+  background: black;
+}
+
+.main {
+  background-image: url(assets/images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  position: relative;
+}
+
+nav {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 20px 5%;
+  position: relative;
+  z-index: 10;
+}
+
+nav img {
+  width: 140px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+}
+
+nav img:hover {
+  scale: 1.02;
+}
+
+.space {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.eng-btn {
+  padding: 5px 20px;
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sign-btn {
+  color: #fff;
+  background-color: red;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn {
+  transition: all ease-in-out 0.4s;
+}
+
+.btn:hover {
+  scale: 1.02;
+}
+
+.btn:active {
+  scale: 1;
+}
+
+.box {
+  height: 100vh;
+  width: 100%;
+  background: black;
+  opacity: 0.68;
+  position: absolute;
+  top: 0;
+}
+
+.text-sect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+  color: #fff;
+  position: relative;
+  z-index: 10;
+  gap: 20px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.text-sect p:nth-child(1) {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+}
+
+.text-sect p:nth-child(2) {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 400;
+}
+
+.text-sect p:nth-child(3) {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+}
+
+.email-sect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.email-sect input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  background: rgba(23, 23, 23, 0.7);
+  border: 1px solid rgba(246, 238, 238, 0.5);
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+}
+
+.gray-line {
+  background: rgb(45, 44, 44);
+  height: 7px;
+  width: 100%;
+  /* margin-top: -7px; */
+}
+
+.first {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 50px 5%;
+  gap: 30px;
+}
+
+.first > div {
+  flex: 1;
+}
+
+.first > div > p:nth-child(1) {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 20px;
+}
+
+.first > div > p:nth-child(2) {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.sec-img {
+  flex: 1;
+  position: relative;
+}
+
+.sec-img img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 20;
+}
+
+.sec-img video {
+  position: absolute;
+  top: 21%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 73%;
+  height: auto;
+  z-index: 10;
+}
+
+.second {
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+.second .sec-img {
+  position: relative;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+}
+
+.button {
+  --width: 100px;
+  --height: 35px;
+  --tooltip-height: 35px;
+  --tooltip-width: 90px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: #1163ff;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: var(--button-color);
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.45em;
+  font-family: "Arial";
+  transition: background 0.3s;
+}
+
+.button::after{
+  scale: 1.02;
+}
+.button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--tooltip-width);
+  height: var(--tooltip-height);
+  background-color: var(--tooltip-color);
+  font-size: 0.9rem;
+  color: #111;
+  border-radius: .25em;
+  line-height: var(--tooltip-height);
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.button::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: var(--tooltip-color);
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.button::after,.button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,.text,.icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.text {
+  top: 0
+}
+
+.text,.icon {
+  transition: top 0.5s;
+}
+
+.icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.button:hover {
+  background: #6c18ff;
+}
+
+.button:hover .text {
+  top: -100%;
+}
+
+.button:hover .icon {
+  top: 0;
+}
+
+.button:hover:before,.button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:hover:after {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+  
+}
+
+.button:hover:before {
+  bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+
+.faq {
+  padding: 50px 5%;
+  color: #ffffff;
+}
+
+.faq > h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: 'NetflixSans-Bold';
+  margin-bottom: 30px;
+}
+
+.faq-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2d2d2d;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  padding: 15px 24px;
+  margin: 8px auto;
+  max-width: 800px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+}
+
+.faq-box:hover {
+  scale: 1.02;
+  background-color: #414141;
+}
+
+.faq-box:active {
+  scale: 1;
+}
+
+.txt {
+  text-align: center;
+  color: #ffffff;
+  padding: 20px 5%;
+}
+
+.txt p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 100;
+}
+
+.text-sect2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 5%;
+  color: #fff;
+  position: relative;
+  z-index: 10;
+  gap: 20px;
+}
+
+.email-sect2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.email-sect2 input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  background: rgba(23, 23, 23, 0.7);
+  border: 1px solid rgba(246, 238, 238, 0.5);
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 50px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.container .eng-btn {
+  width: fit-content;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .first {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .second {
+    flex-direction: column;
+  }
+
+  .third {
+    flex-direction: column;
+  }
+
+  .fourth {
+    flex-direction: column;
+  }
+
+  .email-sect, .email-sect2 {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .email-sect input, .email-sect2 input {
+    width: 100%;
+  }
+
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 15px 5%;
+  }
+
+  nav img {
+    width: 100px;
+  }
+
+  
+
+  .faq-box {
+    padding: 12px 15px;
+  }
+}
+
+.text-sect span, .text-sect2 span {
+  color: #fff;
+  background: red;
+  padding: 4px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
